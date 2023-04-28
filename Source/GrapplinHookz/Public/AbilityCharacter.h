@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AbilitySystemInterface.h"
+#include "CharAttributes.h"
 #include "AbilityCharacter.generated.h"
 
 class UAbilitySystemComponent;
@@ -26,8 +27,11 @@ protected:
 	virtual void BeginPlay() override;
 
 	// Ability System Component
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Abilities, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Abilities, meta = (AllowPrivateAccess = "true"))
 	UAbilitySystemComponent* AbilitySystemComp;
+
+	UPROPERTY()
+	UCharAttributes* CharAttributes;
 
 public:	
 	// Called every frame
